@@ -1,0 +1,11 @@
+h1{
+    text-align: center;
+    color: blueviolet;
+}
+
+div {
+    border: solid black;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+}
