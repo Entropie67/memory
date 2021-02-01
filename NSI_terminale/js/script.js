@@ -42,6 +42,7 @@ function start(){
 }
 start();
 let mesCartes = document.querySelectorAll(".carte");
+let compteurClic = 0;
 
 mesCartes.forEach(function (carte){
     console.log(carte.innerText);
@@ -51,14 +52,14 @@ mesCartes.forEach(function (carte){
 });
 
 function surCarte(item){
-    item.target.style.backgroundColor = "black";
-    item.target.style.color = "white";
-    if (item.target.getAttribute('src') == dos) {
+    console.log("Carte numéro: " + item.target.id);
+    compteurClic++;
+    console.log(compteurClic);
+    if (item.target.getAttribute('src') == dos){
         item.target.setAttribute('src', jeu[item.target.id%10].src);
     }else{
         item.target.setAttribute('src', dos);
     }
-
 }
 
 
