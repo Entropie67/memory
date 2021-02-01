@@ -1,5 +1,5 @@
 
-let mesCartes = document.querySelectorAll(".carte");
+
 
 function start(){
     let main = document.getElementById("main");
@@ -9,20 +9,24 @@ function start(){
 
 }
 
+start();
+let mesCartes = document.querySelectorAll(".carte");
+
+console.log(mesCartes);
 
 
-
-function surCarte(item){
-    item.target.style.backgroundColor = "black";
-    item.target.style.color = "white";
-}
 
 mesCartes.forEach(function (carte){
     console.log(carte.innerText);
     carte.addEventListener("click", item => {
+
         surCarte(item);
     });
 });
 
+function surCarte(item){
+    item.target.style.backgroundColor = "black";
+    item.target.style.color = "white";
 
-start();
+    item.target.setAttribute('src', "images/dos.png");
+}
