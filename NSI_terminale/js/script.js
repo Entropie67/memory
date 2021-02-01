@@ -36,10 +36,9 @@ let dos = "images/dos.png";
 
 function start(){
     let main = document.getElementById("main");
-    for (let i=0;i<10;i++){
+    for (let i=0;i<20;i++){
         main.innerHTML += '<img class="carte" id="'+i+'" src="' + dos + '" height="350" width="200">';
     }
-
 }
 start();
 let mesCartes = document.querySelectorAll(".carte");
@@ -55,7 +54,7 @@ function surCarte(item){
     item.target.style.backgroundColor = "black";
     item.target.style.color = "white";
     if (item.target.getAttribute('src') == dos) {
-        item.target.setAttribute('src', jeu[item.target.id].src);
+        item.target.setAttribute('src', jeu[item.target.id%10].src);
     }else{
         item.target.setAttribute('src', dos);
     }

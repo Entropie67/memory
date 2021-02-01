@@ -1,9 +1,19 @@
 h1{
     text-align: center;
-    color: blueviolet;
+    color: white;
+    background-color: darkred;
 }
-
+body {
+    background-color: cadetblue;
+}
+main {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 .carte {
+    display: block;
     border: solid black;
     border-radius: 10px;
     margin: 5px;
