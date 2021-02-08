@@ -31,7 +31,7 @@ let jeu = [{
     }];
 
 let dos = "images/dos.png";
-
+let carteRetournee = []
 // à partir d'ici plus de src en dur
 
 function start(){
@@ -55,17 +55,29 @@ function surCarte(item){
     console.log("Carte numéro: " + item.target.id);
     compteurClic++;
     console.log(compteurClic);
-    if (item.target.getAttribute('src') == dos){
-        item.target.setAttribute('src', jeu[item.target.id%10].src);
-    }else{
-        item.target.setAttribute('src', dos);
+    carteRetournee.push(item.target);
+    if (compteurClic<3){
+        if (item.target.getAttribute('src') == dos){
+            item.target.setAttribute('src', jeu[item.target.id%10].src);
+        }else{
+            item.target.setAttribute('src', dos);
+        }
     }
     if (compteurClic == 2){
         setTimeout("verification()", 1000);
+
     }
 }
 
 function verification(){
     alert('vérification');
+
+
+    if (carteRetournee[0].getAttribute('src') == carteRetournee[1].getAttribute('src')){
+        console.log("cartes identiques");
+    }else{
+        console.log("cartes différentes");
+    }
+
     // Ici on va vérifier et replacer les cartes à l'envers si besoin
 }
