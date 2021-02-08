@@ -30,8 +30,19 @@ let jeu = [{
     "src": "images/truc.jpg"
     }];
 
+function melange(tab){
+    let i, j, temp;
+    for (i = tab.length - 1; i > 0; i--){
+        j = Math.floor(Math.random() * (i+1));
+        temp = tab[i];
+        tab[i] = tab[j];
+        tab[j] = temp;
+    }
+}
+melange(jeu);
 let dos = "images/dos.png";
-let carteRetournee = []
+let carteRetournee = [];
+let score = 0;
 // à partir d'ici plus de src en dur
 
 function start(){
@@ -69,7 +80,6 @@ function surCarte(item){
     }
     if (compteurClic == 2){
         setTimeout("verification()", 1000);
-
     }
 }
 
@@ -78,18 +88,15 @@ function verification(){
     let carte1 = carteRetournee[0];
     let carte2 = carteRetournee[1];
     if (carte1.getAttribute('src') == carte2.getAttribute('src')){
-        console.log("cartes identiques");
         carte1.setAttribute('class', "retournee");
         carte2.setAttribute('class', "retournee");
-        //carte1.removeEventListener('click', );
-        //carte1.removeEventListener('click', );
+        alert("Bravo, tu as trouvé une paire");
+        score++;
     }else{
         carte1.setAttribute('src', dos);
         carte2.setAttribute('src', dos);
-        console.log("cartes différentes");
+        alert("try again");
     }
     carteRetournee = [];
-
     compteurClic = 0;
-    // Ici on va vérifier et replacer les cartes à l'envers si besoin
 }
