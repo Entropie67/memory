@@ -47,7 +47,11 @@ let cartesCourante = [];
 mesCartes.forEach(function (carte){
     console.log(carte.innerText);
     carte.addEventListener("click", item => {
-        surCarte(item);
+        if (item.target.getAttribute('class') == 'carte'){
+            surCarte(item);
+        }else {
+            alert("Déjà retournée espèce de hamster !");
+        }
     });
 });
 
@@ -71,13 +75,21 @@ function surCarte(item){
 
 function verification(){
     alert('vérification');
-
-
-    if (carteRetournee[0].getAttribute('src') == carteRetournee[1].getAttribute('src')){
+    let carte1 = carteRetournee[0];
+    let carte2 = carteRetournee[1];
+    if (carte1.getAttribute('src') == carte2.getAttribute('src')){
         console.log("cartes identiques");
+        carte1.setAttribute('class', "retournee");
+        carte2.setAttribute('class', "retournee");
+        //carte1.removeEventListener('click', );
+        //carte1.removeEventListener('click', );
     }else{
+        carte1.setAttribute('src', dos);
+        carte2.setAttribute('src', dos);
         console.log("cartes différentes");
     }
+    carteRetournee = [];
 
+    compteurClic = 0;
     // Ici on va vérifier et replacer les cartes à l'envers si besoin
 }
