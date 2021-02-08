@@ -29,7 +29,12 @@ let jeu = [{
     "name": "truc",
     "src": "images/truc.jpg"
     }];
-
+function dedoublement(tab){
+    let n = tab.length;
+    for(let i=0; i<n; i++){
+        tab.push(tab[i]);
+    }
+}
 function melange(tab){
     let i, j, temp;
     for (i = tab.length - 1; i > 0; i--){
@@ -39,6 +44,7 @@ function melange(tab){
         tab[j] = temp;
     }
 }
+dedoublement(jeu);
 melange(jeu);
 let dos = "images/dos.png";
 let carteRetournee = [];
@@ -73,13 +79,13 @@ function surCarte(item){
     carteRetournee.push(item.target);
     if (compteurClic<3){
         if (item.target.getAttribute('src') == dos){
-            item.target.setAttribute('src', jeu[item.target.id%10].src);
+            item.target.setAttribute('src', jeu[item.target.id].src);
         }else{
             item.target.setAttribute('src', dos);
         }
     }
     if (compteurClic == 2){
-        setTimeout("verification()", 1000);
+        setTimeout("verification()", 500);
     }
 }
 
