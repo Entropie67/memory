@@ -58,7 +58,7 @@ let cartesCourante = [];
 mesCartes.forEach(function (carte){
     console.log(carte.innerText);
     carte.addEventListener("click", item => {
-        if (item.target.getAttribute('class') == 'carte'){
+        if ((item.target.getAttribute('class') == 'carte') && !((carteRetournee.length>0) && (carteRetournee[0] == item.target))){
             surCarte(item);
         }else {
             alert("Déjà retournée espèce de hamster !");
